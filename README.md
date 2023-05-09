@@ -6,5 +6,6 @@ Before running the app, you will have to add some products to your Stripe accoun
 
 1. `npm install` to install dependencies.
 2. Create `.env` file and add `STRIPE_API_KEY` and `STRIPE_WEBHOOK_ENDPOINT_KEY` (you can find the webhook endpoint key in the code at the URL https://dashboard.stripe.com/test/webhooks/create?endpoint_location=local).
-3. `npm run start`.
-4. App is now running at `localhost:8000`.
+3. Install the Stripe CLI and run `stripe listen --forward-to localhost:8000/webhook`.
+4. `npm run start`.
+5. App is now running at `localhost:8000`.
