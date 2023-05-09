@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Checkout - Simple Ecommerce Sample</title>
+	<link href="assets/css/reset.css" rel="stylesheet">
+	<link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+	<%- include('partials/header', { numCartItems }) %>
+	<main>
+		<div class="container">
+			<section class="checkout">
+				<form action="/stripe-checkout" method="POST">
+					<% userCart.forEach(cartItem => { %>
+						<div class="cart-item">
+							<div class="cart-left">
+								<img src="<%= cartItem.images[0] || 'https://placehold.co/600x400?text=PRODUCT%20IMAGE' %>" />
+							</div>
+							<div class="cart-right">
+								<div class="cart-item-info">
+									<span class="cart-item-title"><%= cartItem.name %></span>
+									<label class="cart-item-quantity">
+										Quantity: 
+										<input
+											type="text"
+											name="quantity[]"
+											value="<%= cartItem.quantity %>"
+										/>
+									</label>
+								</div>
+								<span class="cart-item-price">$<%= ((cartItem.default_price.unit_amount/100) * cartItem.quantity).toFixed(2) %></span>
+							</div>
+						</div>
+					<% }); %>
+					<div class="checkout-footer">
+						<button
+							type="submit"
+							id="checkout-button"
+							class="btn-pill btn-primary"
+						>
+							Checkout With Stripe
+						</button>
+					</div>
+				</form>
+			</section>
+		</div>
+	</main>
+</body>
+</html>

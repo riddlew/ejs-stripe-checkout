@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Order Successful - Simple Ecommerce Sample</title>
+	<link href="assets/css/reset.css" rel="stylesheet">
+	<link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+	<%- include('partials/header', { numCartItems: 0 }) %>
+	<main>
+		<div class="container">
+			<div class="payment_successful">
+				<h1>Payment Successful</h1>
+				<p>Your payment has been confirmed. You should receive a confirmation order with details about your order, along with proof of payment. Please ensure you check your spam folder if you do not receive this message within 24 hours.</p>
+			</div>
+		</div>
+	</main>
+
+	<script type="text/javascript" src="assets/js/addToCart.js"></script>
+</body>
+</html>
